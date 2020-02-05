@@ -1,0 +1,59 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/montserrat/Montserrat-Regular.otf)
+}
+
+.web-view {
+    font-family: Montserrat,Helvetica,sans-serif;
+    padding: 15px 30px;
+}
+
+    .web-view h1, h2, h3, h4, h5 {
+        font-weight: 900;
+    }
+
+textarea {
+    width: 550px !important;
+}
+
+.dropdown-menu.pull-right {
+    top: auto;
+}
+
+/*For Location picker in modal*/
+.pac-container {
+    z-index: 9999 !important;
+}
+
+
+.web-view h1 {
+    font-size: 25px !important;
+}
+
+.web-view p {
+    font-size: 15px !important;
+}
+
+
+_::-webkit-full-page-media, _:future, :root .web-view h1 {
+    font-size: 45px !important;
+}
+
+_::-webkit-full-page-media, _:future, :root .web-view p {
+    font-size: 24px !important;
+}
+
+
+.block.block-profile {
+    padding: 25px;
+    border: 1px solid #dcdcdc;
+}
+
+.block.block-profile-right {
+    padding: 25px;
+    border: 1px solid #dcdcdc;
+}
+
+.block.block-profile-right , .bg-grey {
+    background: #f8f8f8 !important;
+}
