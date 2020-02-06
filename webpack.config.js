@@ -11,6 +11,10 @@ module.exports = {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
   ],
   devtool: 'inline-source-map',
   devServer: {
@@ -39,6 +43,18 @@ module.exports = {
           }
         ]
       },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
+        ]
+      }
     ],
   },
 };

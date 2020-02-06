@@ -1,9 +1,11 @@
 
-import React, { useState, state, useEffect } from "react";
+// import React, { useState } from 'react';
+import api, { create } from 'apisauce'
+import $ from 'jquery';
 // import LoginForm from '../../containers/LoginForm';
 
-import axios from 'axios';
-import { useAuth } from "../../context/auth";
+// import axios from 'axios';
+// import { useAuth } from "../../context/auth";
 import { Redirect } from "react-router-dom";
 // import Button from '../../containers/Button';
 // import NewsItem from '../../containers/NewsItem';
@@ -28,42 +30,52 @@ import makeAnimated from 'react-select/animated';
 // import { Form, Button } from 'react-bootstrap';
 //should not goin here
 function Login(props) {
+	const config = create({
+		// baseURL: '...',
+		headers: {
+			'Content-Type': 'application/json',
+			'Accept': 'application/json',
+			'Access-Control-Allow-Origin':'*'
+		},
+	});
+	const response = config.post('https://www.indohub.co.id/api/TokenAuth/Authenticate', {UserNameOrEmailAddress : "bandunghubapi@api.com",Password:"3}X,U8sbht=[#H", RememberClient:"true"});
+	console.log(response);
 	// const headers = {
 	// 	'Content-Type': 'application/json',
 	// 	'Accept' : 'application/json'
 	// axios.create( }
-	const Axios = require('axios');
-	// const proxy = require('http-proxy-middleware');
-	const body = {
-		UserNameOrEmailAddress: 'bandunghubapi@api.com',
-		Password: '3}X,U8sbht=[#H',
-		RememberClient: 'true'
-	}
-	const config = Axios.create({
-		// baseURL: 'https://www.indohub.co.id/api/',
-		timeout: 3000,
-		withCredentials: true,
-        crossdomain: true,
-		// contentType: "application/json;charset=utf-8",
-		headers: {
-			'Content-type': 'application/json',
-			'Accept' : 'application/json',
-			// 'Access-Control-Allow-Origin': 'http:/localhost:8080',
-			// 'Access-Control-Request-Method': 'POST',
-			// 'Access-Control-Allow-Credentials': 'true',
-			// 'Access-Control-Allow-Origin': '*'
-		},
-		// data: {
-		// 	'UserNameOrEmailAddress': 'bandunghubapi@api.com',
-		// 	'Password': '3}X,U8sbht=[#H',
-		// 	'RememberClient': 'true'
-		// },
-		// method: 'POST',
-		// responseType: 'json',
+	// const Axios = require('axios');
+	// // const proxy = require('http-proxy-middleware');
+	// const body = {
+	// 	UserNameOrEmailAddress: 'bandunghubapi@api.com',
+	// 	Password: '3}X,U8sbht=[#H',
+	// 	RememberClient: 'true'
+	// }
+	// const config = Axios.create({
+	// 	// baseURL: 'https://www.indohub.co.id/api/',
+	// 	timeout: 3000,
+	// 	withCredentials: true,
+	//     crossdomain: true,
+	// 	// contentType: "application/json;charset=utf-8",
+	// 	headers: {
+	// 		'Content-type': 'application/json',
+	// 		'Accept' : 'application/json',
+	// 		// 'Access-Control-Allow-Origin': 'http:/localhost:8080',
+	// 		// 'Access-Control-Request-Method': 'POST',
+	// 		// 'Access-Control-Allow-Credentials': 'true',
+	// 		// 'Access-Control-Allow-Origin': '*'
+	// 	},
+	// 	// data: {
+	// 	// 	'UserNameOrEmailAddress': 'bandunghubapi@api.com',
+	// 	// 	'Password': '3}X,U8sbht=[#H',
+	// 	// 	'RememberClient': 'true'
+	// 	// },
+	// 	// method: 'POST',
+	// 	// responseType: 'json',
 
-	});
-	let res = Axios.post('https://www.indohub.co.id/api/TokenAuth/Authenticate', body, config);
-  
+	// });
+	// let res = Axios.post('https://www.indohub.co.id/api/TokenAuth/Authenticate', body, config);
+
 	// console.log(`Status: ${res.status}`);
 	// console.log(`Server: ${res.headers.server}`);
 	// console.log(`Date: ${res.headers.date}`);
@@ -162,19 +174,18 @@ function Login(props) {
 	const animatedComponents = makeAnimated();
 	const cityOptions = [
 		// { value: 'default', label: 'Pilih Kota' },
-
 		{ value: 'Bandung', label: 'Bandung' },
 		{ value: 'Tasik', label: 'Tasik' },
 		{ value: 'Cimahi', label: 'Cimahi' },
 		{ value: 'Bekasi', label: 'Bekasi' },
 		{ value: 'Garut', label: 'Garut' },
-		{ value: '', label: 'Super Admin' },
+		{ value: '', label: 'Super Admin' }
 	];
 	const someStyle = {
 		input: styles => ({ ...styles, margin: '0px', paddingTop: '5%' }),
 	};
 
-	const [selectedOption, setSelectedOption] = useState('');
+	// const [selectedOption, setSelectedOption] = useState('');
 
 
 	// const [isLoggedIn, setLoggedIn] = useState(false);
@@ -244,24 +255,24 @@ function Login(props) {
 
 		<div className="login-box">
 			<div className="logo"><h4>logo goes here</h4></div>
-			<div className="tenant-change-box " style={ { position: 'relative', zIndex: '100', marginTop: '5%', marginBottom: '10%' } }>
-				{/* tenant-change-box */ }
-				<div className="card container-fluid" style={ { position: 'relative', zIndex: '100', marginTop: '10%' } } >
-					{/* <div className="row"> */ }
-					{/* <div className="card"> */ }
-					{/* <h4 className="center">Pilih kota</h4> */ }
+			<div className="tenant-change-box " style={{ position: 'relative', zIndex: '100', marginTop: '5%', marginBottom: '10%' }}>
+				{/* tenant-change-box */}
+				<div className="card container-fluid" style={{ position: 'relative', zIndex: '100', marginTop: '10%' }} >
+					{/* <div className="row"> */}
+					{/* <div className="card"> */}
+					{/* <h4 className="center">Pilih kota</h4> */}
 					<br />
 					<Select
-						placeholder={ <div>Pilih kota...</div> }
-						options={ cityOptions }
-						closeMenuOnSelect={ true }
-						components={ animatedComponents }
+						placeholder={<div>Pilih kota...</div>}
+						options={cityOptions}
+						closeMenuOnSelect={true}
+						components={animatedComponents}
 						// defaultValue={[cityOptions[0]]}
-						label="Pilih Kota"
+						// label="Pilih Kota"
 						name="pilihKota"
-						styles={ someStyle }
-						value={ selectedOption }
-						theme={ theme => ({
+						styles={someStyle}
+						// value={ selectedOption }
+						theme={theme => ({
 							...theme,
 							borderRadius: 0,
 							colors: {
@@ -269,16 +280,16 @@ function Login(props) {
 								primary25: 'hotpink',
 								primary: 'black',
 							},
-						}) }
-						isLoading={ true }
-						// onChange={e => this.onOptionChange(selectName.id,e)}
-						// onChange={this.onChangeFunc}
-						onChange={ (selectedOption) => setSelectedOption(selectedOption) }
+						})}
+						isLoading={true}
+					// onChange={e => this.onOptionChange(selectName.id,e)}
+					// onChange={this.onChangeFunc}
+					// onChange={ (selectedOption) => setSelectedOption(selectedOption) }
 					//   isMulti
 					/>
 					<br />
-					{/* </div> */ }
-					{/* </div> */ }
+					{/* </div> */}
+					{/* </div> */}
 				</div>
 				{/* <Typeahead
 					onChange={(selected) => {
