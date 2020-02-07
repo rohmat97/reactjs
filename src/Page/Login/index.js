@@ -30,7 +30,7 @@ import makeAnimated from 'react-select/animated';
 // import { Form, Button } from 'react-bootstrap';
 //should not goin here
 function Login(props) {
-	const config = create({
+	const api = create({
 		// baseURL: '...',
 		headers: {
 			'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ function Login(props) {
 			'Access-Control-Allow-Origin':'*'
 		},
 	});
-	const response = config.post('https://www.indohub.co.id/api/TokenAuth/Authenticate', {UserNameOrEmailAddress : "bandunghubapi@api.com",Password:"3}X,U8sbht=[#H", RememberClient:"true"});
+	const response = api.post('https://www.indohub.co.id/api/TokenAuth/Authenticate', {UserNameOrEmailAddress : "bandunghubapi@api.com",Password:"3}X,U8sbht=[#H", RememberClient:"true"});
 	console.log(response);
 	// const headers = {
 	// 	'Content-Type': 'application/json',
