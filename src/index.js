@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import createSagaMiddleware from 'redux-saga';
-import { render } from 'react-dom';
+import { render, BrowserRouter as Router, Route, Link } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { logger } from 'redux-logger';
@@ -20,6 +20,7 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 render(
+  
   <Provider store={store}>
     <App />
   </Provider>,

@@ -13,6 +13,7 @@ let App = () => (
       </li>
     </ul> */}
     <Route exact path="/" component={Login} />
+    {/* <Route path="/getToken"/> */}
     {/* <Route exact path="/" component={Main} /> */}
   {/* </div> */}
 </Router>
