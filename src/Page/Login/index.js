@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import api, { create } from 'apisauce'
 import $ from 'jquery';
 // import LoginForm from '../../containers/LoginForm';
@@ -31,9 +31,13 @@ import makeAnimated from 'react-select/animated';
 // import { Form, Button } from 'react-bootstrap';
 //should not goin here
 function Login(props) {
-	const connect = async() => {
-		await axios.get('http://localhost:4000/getToken');
+	const connect = () => {
+		let a = axios.get('http://localhost:4000/getToken').then(res => console.log(res));
+		console.log(a);
 	}
+	// console.log(connect);
+	// const a = axios.get('http://localhost:4000/getToken');
+	// console.log(a);
 	// fetch('localhost:4000/getToken')
 	// .then(res => console.log(res))
 	// .catch(console.log);
@@ -42,9 +46,9 @@ function Login(props) {
     //    console.log(response.data);
     // })
     //  .catch(function (error){
-        // console.log(error);	
+    //     console.log(error);	
 	// };
-	console.log(connect);
+	
 	
 	const animatedComponents = makeAnimated();
 	const cityOptions = [
@@ -68,7 +72,9 @@ function Login(props) {
 	// const [password, setPassword] = useState("");
 	// const { setAuthTokens } = useAuth();
 	// const referer = props.location.state.referer || '/admin';
-
+	// useEffect(() => {
+		
+	// });
 	return (
 		<div className="login-box">
 			<div className="logo"><h4>logo goes here</h4></div>
@@ -158,7 +164,7 @@ function Login(props) {
 								<label htmlFor="rememberme">Remember Me</label>
 							</div>
 							<div className="col-xs-4">
-								<button id="LoginButton" className="btn btn-block bg-pink waves-effect" type="submit">Login</button>
+								<button onClick={connect} id="LoginButton" className="btn btn-block bg-pink waves-effect" type="submit">Login</button>
 							</div>
 						</div>
 					</form>
